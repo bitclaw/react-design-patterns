@@ -1,3 +1,5 @@
-# React design patterns
+# react-design-patterns
+React Design Patterns
+
 
 npm install -g create-react-app;create-react-app .;npm start
