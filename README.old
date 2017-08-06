@@ -3,3 +3,8 @@ React Design Patterns
 
 
 npm install -g create-react-app;create-react-app .;npm start
+# compile any JavaScript file
+npm install --global babel-cli
+babel source.js -o output.js
+
+npm install --global babel-preset-es2015 babel-preset-react
