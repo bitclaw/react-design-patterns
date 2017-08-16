@@ -8,7 +8,7 @@ export class Content extends Component {
                 {/* Timeline item */}
                 <div className="item">
                     <div className="avatar">
-                        <img src="http://www.croop.cl/UI/twitter/images/doug.jpg"
+                        <img src="http://www.croop.cl/UI/twitter/images/doug.jpg" alt="doug.jpg"
                         />
                         Doug
                     </div>
