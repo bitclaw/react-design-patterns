@@ -7,6 +7,13 @@ export class TextAreaCounter extends Component {
         this._textChange = this._textChange.bind(this);
     }
 
+    componentWillReceiveProps (newProps) {
+        this.setState({
+            text: newProps.defaultValue,
+        });
+    }
+
+
     _textChange (event) {
         this.setState({
             text: event.target.value,

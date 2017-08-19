@@ -8,3 +8,19 @@ npm install --global babel-cli
 babel source.js -o output.js
 
 npm install --global babel-preset-es2015 babel-preset-react
+
+Lifecycle Methods
+The method componentWillReceiveProps() from the previous snippet is one of the so-called lifecycle methods that React offers. You can use the lifecycle methods to listen to changes in your component. Other lifecycle methods you can implement include:
+componentWillUpdate()
+Executed before the render() method of your component is called again (as a result to changes to the properties or state).
+componentDidUpdate()
+Executed after the render() method is done and the new changes to the underlying DOM have been applied.
+componentWillMount()
+Executed before the node is inserted into the DOM.
+componentDidMount()
+Executed after the node is inserted into the DOM.
+componentWillUnmount()
+Executed right before the component is removed from the DOM.
+shouldComponentUpdate(newProps, newState)
+This method is called before componentWillUpdate() and gives you a chance to return false; and cancel the update, which means your render() method wonâ€™t be invoked. This is useful in performance-critical areas of the app when you think nothing interesting changed and no rerendering is necessary. You make this decision based on comparing the newState argument with the existing this.state and comparing newProps with this.props or just simply knowing that this component is static and doesnâ€™t change. (Youâ€™ll see an example shortly.)
+Lifecycle Example: Log It All
