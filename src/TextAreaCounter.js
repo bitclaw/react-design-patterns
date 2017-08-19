@@ -7,9 +7,9 @@ export class TextAreaCounter extends Component {
         this._textChange = this._textChange.bind(this);
     }
 
-    _textChange (ev) {
+    _textChange (event) {
         this.setState({
-            text: ev.target.value,
+            text: event.target.value,
         });
     }
 
