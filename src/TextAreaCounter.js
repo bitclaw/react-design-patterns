@@ -5,6 +5,7 @@ export class TextAreaCounter extends Component {
         super(props);
         this.state = { text: 'test' };
         this._textChange = this._textChange.bind(this);
+        this._log = this._log.bind(this);
     }
 
     componentWillReceiveProps (newProps) {
@@ -13,6 +14,29 @@ export class TextAreaCounter extends Component {
         });
     }
 
+    _log (methodName, args) {
+        console.log(methodName, args);
+    }
+
+    componentWillUpdate () {
+        this._log('componentWillUpdate',  arguments);
+    }
+
+    componentDidUpdate () {
+        this._log('componentDidUpdate',   arguments);
+    }
+
+    componentWillMount () {
+        this._log('componentWillMount',   arguments);
+    }
+
+    componentDidMount () {
+        this._log('componentDidMount',    arguments);
+    }
+
+    componentWillUnmount () {
+        this._log('componentWillUnmount', arguments);
+    }
 
     _textChange (event) {
         this.setState({
