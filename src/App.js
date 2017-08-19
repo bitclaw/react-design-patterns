@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import { TextAreaCounter } from './TextAreaCounter';
+import { TodoApp } from './TodoApp';
 
 class App extends Component {
     render() {
         return (
             <div>
-                <TextAreaCounter text="another"/>
+                <TodoApp />
             </div>
         )
     }
