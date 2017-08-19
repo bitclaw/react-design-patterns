@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
 
 export class TextAreaCounter extends Component {
-    constructor (props) {
-        super(props)
-    }
-
-    componentWillUnmount () {
-        //this.unmounted = true
-    }
-
     render () {
         return React.DOM.div(null,
             React.DOM.textarea({
@@ -26,5 +18,3 @@ TextAreaCounter.propTypes = {
 TextAreaCounter.defaultProps = {
     text: ''
 };
-
-//export default TextAreaCounter
