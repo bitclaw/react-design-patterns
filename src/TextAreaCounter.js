@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export class TextAreaCounter extends Component {
     constructor (props) {
         super(props);
-        this.state = { text: 'test' };
+        this.state = { text: 'bad' };
         this._textChange = this._textChange.bind(this);
         this._log = this._log.bind(this);
     }
@@ -22,8 +22,10 @@ export class TextAreaCounter extends Component {
         this._log('componentWillUpdate',  arguments);
     }
 
-    componentDidUpdate () {
-        this._log('componentDidUpdate',   arguments);
+    componentDidUpdate (oldProps, oldState) {
+        if (this.state.text.length > 3) {
+            this.setState(oldState);
+        }
     }
 
     componentWillMount () {
