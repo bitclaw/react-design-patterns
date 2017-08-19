@@ -6,7 +6,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <TextAreaCounter text="bob"/>
+                <TextAreaCounter />
             </div>
         )
     }

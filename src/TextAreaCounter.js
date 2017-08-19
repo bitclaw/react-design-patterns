@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 export class TextAreaCounter extends Component {
+    constructor (props) {
+        super(props);
+        this.state = { text: 'test' };
+        this._textChange = this._textChange.bind(this);
+    }
+
+    _textChange (ev) {
+        this.setState({
+            text: ev.target.value,
+        });
+    }
+
     render () {
         return React.DOM.div(null,
             React.DOM.textarea({
-                defaultValue: this.props.text,
+                value: this.state.text,
+                onChange: this._textChange,
             }),
-            React.DOM.h3(null, this.props.text.length)
+            React.DOM.h3(null, this.state.text.length)
         );
     }
 }
-
-TextAreaCounter.propTypes = {
-    text: PropTypes.string,
-};
-
-TextAreaCounter.defaultProps = {
-    text: ''
-};
