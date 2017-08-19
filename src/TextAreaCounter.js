@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class TextAreaCounter extends Component {
     render () {
@@ -12,7 +13,7 @@ export class TextAreaCounter extends Component {
 }
 
 TextAreaCounter.propTypes = {
-    text: React.PropTypes.string,
+    text: PropTypes.string,
 };
 
 TextAreaCounter.defaultProps = {
