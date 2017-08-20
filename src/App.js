@@ -6,46 +6,59 @@ import './App.css';
 class App extends Component {
     constructor() {
         super();
-        this.state = {
-            a: '',
-            b: '',
-        };
+        this.state = {val: 0};
         this.update = this.update.bind(this);
     }
 
     update () {
-        this.setState({
-                a: this.a.refs.input.value,
-                b: this.b.value,
-            }
-        );
+        this.setState({val: this.state.val + 1});
     }
 
-    render() {
+    // noinspection JSMethodCanBeStatic
+    componentWillMount() {
+        console.log(this.componentWillMount.name);
+    }
+
+    // noinspection JSMethodCanBeStatic
+    componentDidMount() {
+        console.log(this.componentDidMount.name);
+    }
+
+    // noinspection JSMethodCanBeStatic
+    componentWillUnmount() {
+        console.log(this.componentWillUnmount.name);
+    }
+
+    // noinspection JSMethodCanBeStatic
+    render () {
+        console.log('render');
+        return <button onClick={this.update}>{this.state.val}</button>
+    }
+}
+
+class Wrapper extends Component {
+
+    // noinspection JSMethodCanBeStatic
+    mount () {
+        ReactDom.render(<App />, document.getElementById('a'));
+    }
+
+    // noinspection JSMethodCanBeStatic
+    unmount () {
+        ReactDom.unmountComponentAtNode(document.getElementById('a'));
+    }
+
+
+    // noinspection JSMethodCanBeStatic
+    render () {
         return (
             <div>
-                <Input
-                    type="text"
-                    ref={ component => this.a = component}
-                    update={this.update.bind(this)}
-                /> {this.state.a}
-                <hr/>
-                <input
-                    type="text"
-                    ref={ node => this.b = node}
-                    onChange={this.update.bind(this)}
-                /> {this.state.b}
+                <button onClick={this.mount.bind(this)}>Mount</button>
+                <button onClick={this.unmount.bind(this)}>UnMount</button>
+                <div id="a"> </div>
             </div>
         )
     }
 }
 
-class Input extends Component {
-    render() {
-        return (
-            <div><input type="text" ref="input" onChange={this.props.update}/></div>
-        )
-    }
-}
-
-export default App;
+export default Wrapper;
