@@ -3,31 +3,37 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
+    constructor() {
+        super();
+        this.state = {currentEvent: '----'};
+        this.update = this.update.bind(this);
+    }
+
+    update (event) {
+        this.setState({currentEvent: event.type});
+    }
+
     render() {
         return (
-            <Title text="12345"/>
+            <div>
+                <textarea
+                    cols="30"
+                    rows="10"
+                    onPaste={this.update}
+                    onCut={this.update}
+                    onCopy={this.update}
+                    onFocus={this.update}
+                    onBlur={this.update}
+                    onDoubleClick={this.update}
+                    onKeyPress={this.update}
+                    onTouchStart={this.update}
+                    onTouchMove={this.update}
+                    onTouchEnd={this.update}
+                />
+                <h1>{this.state.currentEvent}</h1>
+            </div>
         )
     }
 }
-
-// Stateless function component
-const Title = (props) =>
-    <h1>Title: {props.text}</h1>;
-
-Title.propTypes = {
-    text(props,propName,component) {
-        if (!(propName in props)) {
-            // When using minified version the new Error will not show on developer tools
-            new Error(`missing ${propName}`);
-            console.log(`missing ${propName}`);
-        }
-
-        // When using minified version the new Error will not show on developer tools
-        if (props[propName].length < 6) {
-            new Error(`${propName} was too short`);
-            console.log(`${propName} was too short`);
-        }
-    }
-};
 
 export default App;
