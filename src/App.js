@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
-import { TodoApp } from './TodoApp';
 
 class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            txt: 'This is the state text'
+        }
+    }
+
+    update (event) {
+        this.setState({txt: event.target.value});
+    }
+
     render() {
         return (
             <div>
-                <TodoApp />
+                <input type="text"
+                       onChange={this.update.bind(this)}/>
+                <h1>{this.state.txt}</h1>
             </div>
         )
     }
