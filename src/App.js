@@ -15,7 +15,7 @@ class App extends Component {
 
     update () {
         this.setState({
-                a: ReactDom.findDOMNode(this.a).value,
+                a: this.a.refs.input.value,
                 b: this.b.value,
             }
         );
@@ -43,7 +43,7 @@ class App extends Component {
 class Input extends Component {
     render() {
         return (
-            <input type="text" onChange={this.props.update}/>
+            <div><input type="text" ref="input" onChange={this.props.update}/></div>
         )
     }
 }
