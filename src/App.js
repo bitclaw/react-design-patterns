@@ -21,14 +21,17 @@ class App extends Component {
         let txt = this.props.txt;
         return (
             <div>
-                <input type="text"
-                       onChange={this.update.bind(this)}/>
+                <Widget update={this.update.bind(this)}/>
                 <h1>{this.state.txt} - {this.state.cat}</h1>
                 <h2>{txt}</h2>
             </div>
         )
     }
 }
+
+// Stateless function component
+const Widget = (props) =>
+    <input type="text" onChange={props.update}/>;
 
 App.propTypes = {
     txt: PropTypes.string,
