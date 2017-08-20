@@ -17,11 +17,13 @@ class App extends Component {
     // noinspection JSMethodCanBeStatic
     componentWillMount() {
         console.log(this.componentWillMount.name);
+        this.state = {multiplier: 2};
     }
 
     // noinspection JSMethodCanBeStatic
     componentDidMount() {
         console.log(this.componentDidMount.name);
+        console.log(ReactDom.findDOMNode(this));
     }
 
     // noinspection JSMethodCanBeStatic
@@ -32,7 +34,7 @@ class App extends Component {
     // noinspection JSMethodCanBeStatic
     render () {
         console.log('render');
-        return <button onClick={this.update}>{this.state.val}</button>
+        return <button onClick={this.update}>{this.state.val * this.state.multiplier}</button>
     }
 }
 
