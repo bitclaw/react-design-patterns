@@ -14,8 +14,8 @@ class App extends Component {
 
     update () {
         this.setState({
-                a: this.refs.a.value,
-                b: this.refs.b.value,
+                a: this.a.value,
+                b: this.b.value,
             }
         );
     }
@@ -25,13 +25,13 @@ class App extends Component {
             <div>
                 <input
                     type="text"
-                    ref="a"
+                    ref={ node => this.a = node}
                     onChange={this.update.bind(this)}
                 /> {this.state.a}
                 <hr/>
                 <input
                     type="text"
-                    ref="b"
+                    ref={ node => this.b = node}
                     onChange={this.update.bind(this)}
                 /> {this.state.b}
             </div>
