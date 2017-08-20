@@ -11,7 +11,10 @@ class App extends Component {
     }
 
     update (event) {
-        this.setState({txt: event.target.value});
+        this.setState({
+            txt: event.target.value,
+            cat: 0
+        });
     }
 
     render() {
@@ -20,7 +23,7 @@ class App extends Component {
             <div>
                 <input type="text"
                        onChange={this.update.bind(this)}/>
-                <h1>{this.state.txt}</h1>
+                <h1>{this.state.txt} - {this.state.cat}</h1>
                 <h2>{txt}</h2>
             </div>
         )
